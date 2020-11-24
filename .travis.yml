@@ -18,7 +18,6 @@ services:
 
 php:
     # We only run the highest and lowest supported versions to reduce the load on travis-ci.org.
-    - 7.4
     - 7.2
 
 addons:
@@ -47,13 +46,13 @@ jobs:
     # It will not stop the jobs from running.
     fast_finish: true
 
-    include:
-          # Run mysql only on highest - it's just too slow
-        - php: 7.4
-          env: DB=mysqli   TASK=PHPUNIT
-          # Run grunt/npm install on highest version too ('node' is an alias for the latest node.js version.)
-        - php: 7.4
-          env: DB=none     TASK=GRUNT   NVM_VERSION='lts/carbon'
+    # include:
+    #       # Run mysql only on highest - it's just too slow
+    #     - php: 7.4
+    #       env: DB=mysqli   TASK=PHPUNIT
+    #       # Run grunt/npm install on highest version too ('node' is an alias for the latest node.js version.)
+    #     - php: 7.4
+    #       env: DB=none     TASK=GRUNT   NVM_VERSION='lts/carbon'
 
 cache:
     directories:
