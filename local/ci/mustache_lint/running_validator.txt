@@ -1,0 +1,5 @@
+Running a local instance of the validator for more reliability..
+
+
+1/ npm install
+2/ The mustache_lint.sh script should use the npm-installed version of validator automatically.

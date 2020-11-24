@@ -1,0 +1,51 @@
+dist: xenial
+
+language: php
+
+sudo: false
+
+addons:
+  apt:
+    packages:
+      - bc
+
+cache:
+  directories:
+      - $HOME/cachedir
+
+services:
+  - mysql
+
+php:
+    - 7.2
+
+env:
+    - TEST_SUITE="0-*"
+    - TEST_SUITE="1-*"
+    - TEST_SUITE="2-*"
+    - TEST_SUITE="3-*"
+
+install:
+  - git clone --depth 1 https://github.com/sstephenson/bats.git $HOME/bats
+  - nvm install 8.9
+  - nvm use 8.9
+  - travis_retry composer install
+  - npm install
+
+before_script:
+  - 'git config --global user.email "travis@localhost"'
+  - 'git config --global user.name "Travis CI"'
+  - 'git config --global core.abbrev 10'
+  - "export LOCAL_CI_TESTS_CACHEDIR=$HOME/cachedir && mkdir -p $LOCAL_CI_TESTS_CACHEDIR"
+  - "export LOCAL_CI_TESTS_GITDIR=$HOME/gitdir && git clone git://github.com/moodle/moodle $LOCAL_CI_TESTS_GITDIR"
+  - "git clone -q --depth 1 --branch phpcs3 https://github.com/moodlehq/moodle-local_codechecker $HOME/moodle-local_codechecker"
+  - "export LOCAL_CI_TESTS_PHPCS_DIR=$HOME/moodle-local_codechecker/moodle/"
+  - "export LOCAL_CI_TESTS_DBLIBRARY=native"
+  - "export LOCAL_CI_TESTS_DBTYPE=mysqli"
+  - "export LOCAL_CI_TESTS_DBHOST=localhost"
+  - "export LOCAL_CI_TESTS_DBUSER=travis"
+  - "export LOCAL_CI_TESTS_DBPASS="
+  - "unset _JAVA_OPTIONS" # stderr output on each java execution breaks our json expectations. See travis-ci/travis-ci#8408
+
+script:
+  - $HOME/bats/bin/bats tests/$TEST_SUITE

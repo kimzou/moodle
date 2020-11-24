@@ -1,0 +1,8 @@
+# Each line contents must exist independently in results.
+|/backup/cc/schemas/|/backup/cc/schemas11/|
+|/enrol/lti/ims-blti/|
+|/filter/algebra/AlgParser\.pm|
+|/lib/amd/src/mustache\.js|
+|/lib/editor/atto/tests/fixtures/pretty-good-en\.vtt|/lib/editor/atto/tests/fixtures/pretty-good-sv\.vtt|
+/lib/editor/atto/yui/src/rangy/js|/lib/editor/atto/yui/src/rangy/js/.*\..*|
+|/node_modules/|

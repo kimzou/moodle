@@ -1,0 +1,12 @@
+# Each line contents must exist independently in results.
+*/*\.csv*,*/*\.gif*,*/*\.ics*,*/*\.jpg*,*/*\.png*,*/*\.svg*,*/\.git/*,
+lib/amd/src/loglevel\.js*,*/lib/amd/src/mustache\.js*,
+*/lib/editor/atto/tests/fixtures/pretty-good-sv\.vtt*,
+*/lib/editor/atto/yui/src/rangy/js*,*/lib/editor/atto/yui/src/rangy/js/*\.**,
+*/lib/jquery/*,
+*/mod/assign/feedback/editpdf/fpdi/*,
+*/theme/bootstrapbase/amd/src/bootstrap\.js*,
+*/vendor/*,
+*/webservice/amf/testclient/AMFTester\.mxml*,
+*/webservice/amf/testclient/customValidators/JSONValidator\.as*,
+*/work/*

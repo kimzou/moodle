@@ -1,0 +1,16 @@
+# Each line contents must exist independently in results.
+--exclude *.csv --exclude *.gif --exclude *.ics --exclude *.jpg --exclude *.png --exclude *.svg
+--exclude admin/tool/installaddon/tests/fixtures/versionphp/version1.php
+--exclude auth/cas/CAS
+--exclude auth/fc/fcFPP.php
+--exclude backup/bb/bb5.5_to_moodle.xsl --exclude backup/bb/bb6_to_moodle.xsl
+--exclude backup/cc/schemas --exclude backup/cc/schemas11
+--exclude enrol/lti/ims-blti
+--exclude enrol/lti/tests/fixtures
+--exclude lib/alfresco
+--exclude lib/amd/src/loglevel.js --exclude lib/amd/src/mustache.js
+--exclude lib/csshover.htc
+--exclude lib/editor/tinymce/plugins/spellchecker --exclude lib/editor/tinymce/plugins/spellchecker/rpc.php
+--exclude lib/xmlize.php
+--exclude node_modules
+--exclude theme/bootstrapbase/javascript/html5shiv.js --exclude theme/bootstrapbase/less/bootstrap
