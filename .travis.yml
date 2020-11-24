@@ -299,3 +299,9 @@ after_script:
         EXTTESTS_HITS=$(docker logs exttests 2>&1 | grep -Fv -e 'AH00558' -e '[pid 1]' | wc -l)
         echo -e "\nTest local resources number of hits: ${EXTTESTS_HITS}.\n"
       fi
+
+deploy:
+  provider: pages
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: dev
