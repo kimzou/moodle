@@ -4,7 +4,8 @@
 
 notifications:
   email:
-    if: env(MOODLE_EMAIL) != no
+    if: $MOODLE_EMAIL != no
+    # if: env(MOODLE_EMAIL) != no
 
 language: php
 
@@ -299,9 +300,15 @@ after_script:
         echo -e "\nTest local resources number of hits: ${EXTTESTS_HITS}.\n"
       fi
 
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github-token: $GITHUB_TOKEN
+#   on:
+#     branch: dev
+
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github-token: $GITHUB_TOKEN
-  on:
-    branch: dev
+  - provider: script
+    script: bash scripts/deploy.sh
+    on:
+      branch: test
